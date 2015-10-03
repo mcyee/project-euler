@@ -5,32 +5,71 @@
 ################################################################################
 
 TERM = 600851475143
-currentNum = TERM
-divisible = False
+factors = []
 
-while (not divisible) and (currentNum > 1):
+# get factors of TERM
+for i in range(1, TERM):
+	if TERM % i == 0 and i != 1:
+		factors.append(i)
+		print(i)
 
-	print("currentNum is: " + str(currentNum))
+# print("list of factors:")
+# for fact in factors:
+# 	print(fact)
 
-	# check if currentNum divides TERM
-	if TERM % currentNum == 0:
+# check if factor is divisible by smaller factors
+elem = len(factors) - 1
+while elem > 0:
 
-		print("currentNum divides evenly: " + str(currentNum))
+	j = 0
+	while j < elem:
 
-		# check if currentNum is prime
-		prime = True
-		factor = currentNum - 1
-		while prime and (factor > 1):
-			if currentNum % factor == 0:
-				prime = False
-			factor = factor - 1
+		# print("factors[elem]: " + str(factors[elem]))
+		# print("factors[j]: " + str(factors[j]))
 
-		print(str(currentNum) + " is prime: " + str(prime))
+		if factors[elem] != factors[j]:
+			if factors[elem] % factors[j] == 0:
+				popped = factors.pop(elem)
+				print("popping " + str(popped))
+				elem = elem - 1
+				j = 0
+		j = j + 1
 
-		# found prime factor
-		if prime == True:
-			divisible = True
+	elem = elem - 1
 
-	currentNum = currentNum - 1
+print(factors.pop())
 
-print(currentNum + 1)
+
+
+## ORIGINAL
+
+# TERM = 600851475143
+# currentNum = TERM
+# divisible = False
+
+# while (not divisible) and (currentNum > 1):
+
+# 	print("currentNum is: " + str(currentNum))
+
+# 	# check if currentNum divides TERM
+# 	if TERM % currentNum == 0:
+
+# 		print("currentNum divides evenly: " + str(currentNum))
+
+# 		# check if currentNum is prime
+# 		prime = True
+# 		factor = currentNum - 1
+# 		while prime and (factor > 1):
+# 			if currentNum % factor == 0:
+# 				prime = False
+# 			factor = factor - 1
+
+# 		print(str(currentNum) + " is prime: " + str(prime))
+
+# 		# found prime factor
+# 		if prime == True:
+# 			divisible = True
+
+# 	currentNum = currentNum - 1
+
+# print(currentNum + 1)
