@@ -2,6 +2,12 @@
 
 Find the largest prime factor of the given number.
 
+## Fourth Algorithm (Solution)
+
+Start at 2, and increment by one.  
+Let `quotient` be `n` and divide it as many times as possible by the current number.  
+When the current number is `quotient`, stop. `quotient` is the largest prime factor.
+
 ## Thoughts
 
 * Is there a way to skip numbers the bigger the factor becomes, to shorten the list of factors/testing for divisibility?
