@@ -1,4 +1,4 @@
-## Largest Prime Factor
+# Largest Prime Factor
 
 Find the largest prime factor of the given number.
 
